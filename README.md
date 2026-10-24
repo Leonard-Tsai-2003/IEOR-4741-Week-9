@@ -112,7 +112,7 @@ Under heavy stress testing ($10^8$ iterations across 8 reader threads), $0$ torn
 
 ## Performance Benchmarks
 
-Benchmarks were performed using Time Stamp Counter (`rdtsc`) instructions on x86_64 hardware with 1 dedicated writer thread and 8 concurrent reader threads.
+Benchmarks were performed using Apple M2 (RAM 8GB) with 1 dedicated writer thread and 8 concurrent reader threads.
 
 ### Reader Latency Comparison (Cycles / Operation)
 
@@ -162,10 +162,10 @@ Despite TSan's warning, the algorithm is provably data-race-free in terms of log
 
 ```bash
 # Build optimized benchmark binary
-g++ -O3 -std=c++17 -pthread -march=native main.cpp -o seqlock_bench
+g++ -O3 -std=c++17 -pthread -march=native seqlock.cpp -o seqlock_bench
 
 # Build ThreadSanitizer verification binary
-g++ -O2 -g -std=c++17 -pthread -fsanitize=thread main.cpp -o seqlock_tsan
+g++ -O2 -g -std=c++17 -pthread -fsanitize=thread seqlock.cpp -o seqlock_tsan
 ```
 
 ### Execution
