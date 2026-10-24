@@ -186,6 +186,4 @@ g++ -O2 -g -std=c++17 -pthread -fsanitize=thread main.cpp -o seqlock_tsan
 .
 ├── README.md           # Documentation and performance analysis
 ├── SeqLock.h           # Lock-free SeqLock template implementation
-├── Quote.h             # Financial quote payload definition
-├── main.cpp            # Stress tests, benchmark harness, and verification
-└── Makefile            # Build targets
+└── seqlock.cpp            # Stress tests, benchmark harness, and verification
